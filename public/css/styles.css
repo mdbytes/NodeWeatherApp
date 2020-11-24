@@ -57,7 +57,8 @@ a {
   color: black;
 }
 
-.container {
+.container-fluid {
+  margin: 0 10%;
 }
 
 main {
