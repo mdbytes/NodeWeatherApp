@@ -1,5 +1,3 @@
-console.log("javascript is loaded");
-
 const getWeather = document.querySelector("#get-weather");
 const clientBox = document.querySelector("#client-box");
 const weatherForm = document.querySelector("#weather-request");
