@@ -1,8 +1,11 @@
 const request = require("request");
+const keys = require("../config/keys");
 
 const forecast = (location, callback) => {
   const url =
-    "http://api.weatherstack.com/current?access_key=aafec964702a0d8e44d77a02850927fc&query=" +
+    "http://api.weatherstack.com/current?access_key=" +
+    keys.weatherStackAPI +
+    "&query=" +
     location +
     "&units=f";
 
