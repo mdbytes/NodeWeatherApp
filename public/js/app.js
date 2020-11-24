@@ -14,6 +14,7 @@ getWeather.addEventListener("submit", (e) => {
 weatherForm.addEventListener("submit", (e) => {
   e.preventDefault();
   messageOne.textContent = "";
+  messageOne.style.color = "black";
   messageTwo.textContent = "";
   const location = inputValue.value;
   const fetchString = "/weather?address=" + location;
@@ -21,7 +22,17 @@ weatherForm.addEventListener("submit", (e) => {
   fetch(fetchString).then((response) => {
     response.json().then((data) => {
       if (data.error) {
-        messageOne.textContent = data.error;
+        if (
+          data.error ===
+          "Your API request failed. Please try again or contact support."
+        ) {
+          messageOne.textContent =
+            "Oops.  We didn't recognize that locataion.  Try again.";
+          messageOne.style.color = "red";
+        } else {
+          messageOne.textContent = data.error;
+          messageOne.style.color = "red";
+        }
         inputValue.value = "";
       } else {
         messageOne.textContent = "Location: " + data.location;
