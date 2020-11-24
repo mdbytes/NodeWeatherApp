@@ -13,13 +13,15 @@ getWeather.addEventListener("submit", (e) => {
 
 weatherForm.addEventListener("submit", (e) => {
   e.preventDefault();
+  messageOne.textContent = "";
+  messageTwo.textContent = "";
   const location = inputValue.value;
   const fetchString = "/weather?address=" + location;
   messageOne.textContent = "Loading forecast ...";
   fetch(fetchString).then((response) => {
     response.json().then((data) => {
       if (data.error) {
-        messageOnetextContent = data.error;
+        messageOne.textContent = data.error;
         inputValue.value = "";
       } else {
         messageOne.textContent = "Location: " + data.location;
