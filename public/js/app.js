@@ -3,7 +3,9 @@ const clientBox = document.querySelector("#client-box");
 const weatherForm = document.querySelector("#weather-request");
 const inputValue = document.querySelector("input");
 const messageOne = document.querySelector("#message-one");
+const messageOneTime = document.querySelector("#message-one-time");
 const messageTwo = document.querySelector("#message-two");
+const weatherIcon = document.querySelector("#weather-icon");
 
 getWeather.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -14,6 +16,7 @@ getWeather.addEventListener("submit", (e) => {
 weatherForm.addEventListener("submit", (e) => {
   e.preventDefault();
   messageOne.textContent = "";
+  messageOneTime.textContent = "";
   messageOne.style.color = "black";
   messageTwo.textContent = "";
   const location = inputValue.value;
@@ -36,19 +39,10 @@ weatherForm.addEventListener("submit", (e) => {
         inputValue.value = "";
       } else {
         messageOne.textContent = "Location: " + data.location;
+        messageOneTime.textContent = "Time: " + data.time;
         messageTwo.textContent = "Forecast: " + data.forecast;
         inputValue.value = "";
       }
     });
-  });
-});
-
-fetch("/weather?address=cedar rapids").then((response) => {
-  response.json().then((data) => {
-    if (data.error) {
-      console.log(data.error);
-    } else {
-      console.log(data);
-    }
   });
 });

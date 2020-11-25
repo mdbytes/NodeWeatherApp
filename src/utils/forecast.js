@@ -27,10 +27,12 @@ const forecast = (location, callback) => {
       } else {
         weatherDescription = weather_descriptions[0] + " ";
       }
-      callback(
-        undefined,
-        `It is currently ${weatherDescription.toLowerCase()}in ${name}, ${temperature} degrees, and ${precip} % chance of rain. It feels like ${feelslike} degrees`
-      );
+      callback(undefined, {
+        location: name,
+        time: location.localtime,
+        icon_url: current.weather_icons[0],
+        forecast: `It is currently ${weatherDescription.toLowerCase()}in ${name}, ${temperature} degrees, and ${precip} % chance of rain. It feels like ${feelslike} degrees`,
+      });
     }
   });
 };

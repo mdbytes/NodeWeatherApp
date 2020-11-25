@@ -29,7 +29,9 @@ app.get("/", (req, res) => {
 
 app.get("/about", (req, res) => {
   res.render("about", {
-    title: "About Us",
+    title: "Weather App",
+    page: "About Us",
+    message: "Here's a bit about who we are ...",
     name: "Martin Dwyer",
     tagline: "Your instant weather resource",
   });
@@ -37,7 +39,8 @@ app.get("/about", (req, res) => {
 
 app.get("/help", (req, res) => {
   res.render("help", {
-    title: "Help",
+    title: "Weather App",
+    page: "Help Page",
     message: "We are here to help.  Let us know what you need!",
     tagline: "Your instant weather resource",
   });
@@ -56,8 +59,10 @@ app.get("/weather", (req, res) => {
         });
       } else {
         res.send({
-          location: req.query.address,
-          forecast: data,
+          location: data.location,
+          time: data.time,
+          icon: data.icon_url,
+          forecast: data.forecast,
         });
       }
     });
