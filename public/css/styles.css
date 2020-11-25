@@ -12,16 +12,22 @@ h1 {
   min-width: 300px;
 }
 
-.col.left-column-site {
-  padding-top: 20px;
-  width: 20%;
-  min-width: 300px;
+.col-md-4.left-column {
+  padding: 2em;
 }
 
-.col.right-column-site {
-  padding-top: 20px;
-  width: 80%;
-  min-width: 300px;
+.col-md-4.left-column h3 {
+  font-size: 500%;
+  font-weight: bolder;
+  color: #b37700;
+  text-align: center;
+}
+
+.col-md-7.right-column {
+  padding: 2em;
+  margin: 2em;
+
+  background-color: #ffffff;
 }
 
 #get-weather {
